@@ -1,6 +1,6 @@
 import axios, { Axios } from "axios";
 const productionUrl = 'https://strapi-store-server.onrender.com/api';
-
+// https://blog.logrocket.com/using-axios-set-request-headers/#installing-axios
 export const customFetch = axios.create({
 
     baseURL: productionUrl,

@@ -3,28 +3,35 @@ import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
 import { FaBarsStaggered } from 'react-icons/fa6';
 import { NavLink } from 'react-router-dom';
 import NavLinks from './Navlinks';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleTheme } from '../features/user/userSlice';
 
-const themes={
-    light:'light',
-    dark:'dark'
-}
-const getThemeFromLocalStorage=()=>{
-    return localStorage.getItem('theme') || themes.light
-}
+// const themes={
+//     light:'light',
+//     dark:'dark'
+// }
+// const getThemeFromLocalStorage=()=>{
+//     return localStorage.getItem('theme') || themes.light
+// }
 const Navbar = () => {
-    const [theme,setTheme]=useState(getThemeFromLocalStorage)
+    // const [theme,setTheme]=useState(getThemeFromLocalStorage)
+    // const handleTheme=()=>{
+    //     const {light,dark}=themes
+    //     const newTheme=theme===light?dark:light;
+    //     document.documentElement.setAttribute('data-theme',theme)
+    //     setTheme(newTheme)
+    // }
+    const dispatch=useDispatch()
     const handleTheme=()=>{
-        const {light,dark}=themes
-        const newTheme=theme===light?dark:light;
-        document.documentElement.setAttribute('data-theme',theme)
-        setTheme(newTheme)
+      dispatch(toggleTheme())
     }
-    useEffect(()=>{
-        document.documentElement.setAttribute('data-theme',theme)
-        localStorage.setItem('theme',theme)
 
-    },[theme])
+     //useEffect(()=>{
+    //   //  document.documentElement.setAttribute('data-theme',theme)
+    //     // localStorage.setItem('theme',theme)
+        
+
+    // },[theme])
     const numItemsInCart=useSelector((state)=>state.cartState.numItemsInCart)
     return (
       <nav className='bg-base-200'>
@@ -51,7 +58,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className='navbar-center hidden lg:flex'>
-            <ul className='menu menu-horizontal '>
+            <ul className='menu menu-horizontal  gap-x-4 '>
 
                 <NavLinks/>
             </ul>
@@ -67,9 +74,10 @@ const Navbar = () => {
             <NavLink to='cart' className='btn btn-ghost btn-circle btn-md ml-4'>
               <div className='indicator'>
                 <BsCart3 className='h-6 w-6' />
-                <span className='badge badge-sm badge-primary indicator-item'>
+                {numItemsInCart>0&&<span className='badge badge-sm badge-primary indicator-item'>
                   {numItemsInCart}
-                </span>
+                </span>}
+                
               </div>
             </NavLink>
           </div>

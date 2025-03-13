@@ -15,6 +15,9 @@
 
         @apply mx-auto max-w-6xl px-8;
     }
+    .navlinks{
+        @apply hover:bg-secondary hover:text-white rounded ;
+    }
     .navlinks .active{
         @apply bg-secondary text-white;
     }

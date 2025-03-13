@@ -65,7 +65,7 @@ const cartSlice = createSlice({
         },
         calculateTotals:(state)=>{
 
-            state.tax = 0.1 * state.cartTotal;
+            state.tax = 0.05 * state.cartTotal;
 
             state.orderTotal = state.cartTotal + state.shipping + state.tax;
             localStorage.setItem('cart', JSON.stringify(state));
