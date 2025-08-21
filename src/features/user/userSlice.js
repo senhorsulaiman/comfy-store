@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { toast } from "react-toast";
+import { toast } from "react-toastify";
 
  const themes={
     light:'light',
@@ -31,7 +31,7 @@ const userSlice=createSlice({
 
         loginUser:(state,action)=>{
 
-            console.log(action.payload)
+            // console.log(action.payload)
             const user={...action.payload.user,token:action.payload.jwt}
             state.user=user;
             localStorage.setItem('user',JSON.stringify(user))

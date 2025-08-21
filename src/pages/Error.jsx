@@ -7,7 +7,7 @@ import { Link, useRouteError } from 'react-router-dom'
 
 const Error = () => {
   const error=useRouteError();
-  // console.log(error)
+   console.log(error)
   if(error.status===404){
 
     return (
@@ -28,7 +28,8 @@ const Error = () => {
   return (
     <main className='grid min-h-[100vh] place-items-center px-8' >
       <h4 className='text-center font-bold text-4xl'>
-        there was an error....
+        {error.message}
+        {/* there was an error.... */}
       </h4>
 
     </main>
