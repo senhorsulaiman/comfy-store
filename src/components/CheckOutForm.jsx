@@ -31,7 +31,7 @@ export const action=(store)=>async({request})=>{
    
     catch(error){
        const errorMessage=error?.response?.data?.message || 'there was an error placing your order'
-            console.log(error)
+            // console.log(error)
             toast.error(errorMessage);
             if(error.response.status===401|| 403 ){
               return redirect ('/login')

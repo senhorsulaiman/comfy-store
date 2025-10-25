@@ -49,13 +49,13 @@ const Login = () => {
       // return null
     }
     catch(error){
-      // const errorMessage=error?.response?.data?.message || 'please double check credentials'
-      console.log(error)
-      toast.error('guest user login error please try agin');
+     const errorMessage=error?.response?.data?.message || 'please double check credentials'
       // console.log(error)
+      toast.error(errorMessage);
+      
    
   
-      // return null
+      return null
     }
 
   }

@@ -30,7 +30,7 @@ const PaginationContainer = () => {
     <div className='mt-16 flex justify-end '>
 
 
-      <div className="join">
+      <div className="join ">
         <button className='capitalize btn btn-xs sm:btn-md border-none  join-item' onClick={() => {
 
           let prevPage = page - 1;
