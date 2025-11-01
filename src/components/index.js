@@ -16,4 +16,4 @@ export {default as Loading } from './Loading'
 export {default as CartTotals } from './CartTotals'
 export {default as CartitemsList } from './CartitemsList'
 export {default as OrdersList } from './OrdersList'
-export {default as ComplexPaginationContainer } from './ComplexPaginationContainer'
+
