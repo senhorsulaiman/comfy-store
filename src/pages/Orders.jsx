@@ -2,7 +2,8 @@ import React from 'react'
 import { customFetch } from '../utils';
 import { toast } from 'react-toastify';
 import { useLoaderData } from 'react-router-dom';
-import { OrdersList, PaginationContainer, SectionTitle } from '../components';
+import { OrdersList, SectionTitle, ComplexPaginationContainer } from '../components';
+
 export const loader=(store)=>async({request})=>{
   console.log(store)
   const user =store.getState().userState.user;
@@ -49,7 +50,7 @@ const Orders = () => {
     <>
       <SectionTitle text='Your orders'/>
       <OrdersList/>
-      <PaginationContainer/>
+      <ComplexPaginationContainer/>
     </>
   )
 }
